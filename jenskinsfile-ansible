@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                https://github.com/nazeerb067/akbar-app.git
+                sh 'https://github.com/nazeerb067/akbar-app.git'
             }
         }
          stage('install') {
             steps {
-                sh "npm install"
+                sh 'npm install'
                 
             }
         }
          stage('build') {
             steps {
-                sh "npm run build --dev"
+                sh 'npm run build --prod'
             }
         }
          stage('ansible-deploy') {
