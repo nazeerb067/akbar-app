@@ -1,0 +1,2 @@
+[web-server]
+web-server1 ansible_host=172.31.9.82
