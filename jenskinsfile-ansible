@@ -20,7 +20,7 @@ pipeline {
         }
          stage('ansible-deploy') {
             steps {
-               ansiblePlaybook become: true, credentialsId: '96d0bd54-4a92-494c-a63a-5c5d7302bb51', disableHostKeyChecking: true, inventory: 'host.inv', playbook: 'play-deploy.yml', vaultTmpPath: ''
+               ansiblePlaybook become: true, credentialsId: '96d0bd54-4a92-494c-a63a-5c5d7302bb51', disableHostKeyChecking: true, inventory: 'Host.inv', playbook: 'play-deploy.yml', vaultTmpPath: ''
             }
         }
     }
