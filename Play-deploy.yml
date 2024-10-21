@@ -1,0 +1,23 @@
+---
+- name: first playbook
+  hosts: web-server1
+  become: yes
+  tasks:
+    - name: install httpd software
+      yum:
+        name: httpd
+        state: latest
+    - name: started the service
+      service:
+        name: httpd
+        state: started
+    - name: copy the webpage
+      copy:
+        src: /var/lib/jenkins/workspace/deploy-angular-app-ansible/dist/akbar-app/
+        dest: /var/www/html/
+      notify: Restart web server
+  handlers:
+    - name: Restart web server
+      service:
+        name: httpd
+        state: restarted
